@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
-const port = 5000
+const port = 3010
 const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
 const { MongoClient } = require('mongodb')
 const cors = require('cors')
 const ObjectId = require('mongodb').ObjectId
-const path = ('path')
+const path = require('path')
 
 dotenv.config()
 
@@ -16,9 +16,7 @@ app.use(cors({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
 
-app.use(express.static(
-    path.join(__dirname, "../client/build")));
-
+app.use(express.static('client/build'));
 
 const client = new MongoClient(process.env.DB_CONNECT)
 let collection = MongoConnect(client)
@@ -34,7 +32,8 @@ async function MongoConnect (client){
 
 app.get('*', (req, res) => {
     res.sendFile(
-        path.join(__dirname, "../client/build/index.html")
+        path.resolve(__dirname, 'client', 'build', 
+    'index.html')
     );
 });
 
