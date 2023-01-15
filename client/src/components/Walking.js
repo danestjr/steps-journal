@@ -13,7 +13,7 @@ function Walking () {
     
 
     const loadData = async () => {
-        let response = await fetch("http://localhost:3000/list", {
+        let response = await fetch("/list", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ function Walking () {
     }
 
     const deleteData = async (e, id) => {
-        let response = await fetch("http://localhost:3000/delete", {
+        let response = await fetch("/delete", {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

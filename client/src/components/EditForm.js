@@ -17,7 +17,7 @@ function EditForm() {
 
     const updateData = async (e) => {
         e.preventDefault()
-        let response = await fetch("http://localhost:3000/update", {
+        let response = await fetch("/update", {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
