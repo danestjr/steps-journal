@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3010
+const port = 3000
 const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
 const { MongoClient } = require('mongodb')
@@ -10,9 +10,9 @@ const path = require('path')
 
 dotenv.config()
 
-app.use(cors({
-    origin: 'http://localhost:3000'
-}));
+// app.use(cors({
+//     origin: 'http://localhost:3000'
+// }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
 
