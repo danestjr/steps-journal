@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react';
 import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import Header from './Header'
 
 function AddForm() {
     const [date, setDate] = useState([]);
@@ -26,11 +27,12 @@ function AddForm() {
             }),
         })
         if (response.status === 200){
-            navigate('/')
+            navigate('/journal')
         }
     }
 
-    return(
+    return(<>
+        <Header user={user} color="dark" dark={true} expand='sm' />
         <Container>
             <Form onSubmit={addData}>
                 <FormGroup>
@@ -60,6 +62,7 @@ function AddForm() {
                 </Button>
             </Form>
         </Container>
+        </>
     )
 }
 

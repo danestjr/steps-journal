@@ -5,13 +5,13 @@ import { Button, Table, Container } from 'reactstrap';
 import { format } from 'date-fns'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+import Header from './Header'
 
 function Walking () {
 
     const [walking, setWalking] = useState([]);
     const { user } = useAuth0();
     
-
     const loadData = async () => {
         let response = await fetch("/list", {
             method: 'POST',
@@ -43,7 +43,10 @@ function Walking () {
 
     useEffect(() => {loadData()})
 
-    return <Container>           
+    return <>
+        <Header user={user} color="dark" dark={true} expand='sm' />
+        <Container>
+        <h3>{user.given_name}'s Walking Log</h3>
            <Table hover>
            <thead>
              <tr>
@@ -67,6 +70,7 @@ function Walking () {
             </Table>
             <Link to="add"><Button>Add</Button></Link>
          </Container> 
+         </>
 }
 
 export default Walking;
