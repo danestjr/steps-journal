@@ -37,6 +37,7 @@ function EditForm() {
     return(<>
         <Header user={user} color="dark" dark={true} expand='sm' />
         <Container>
+            <h1>Edit your log entry:</h1>
         <Form onSubmit={updateData}>
             <FormGroup>
                 <Label for='date'>

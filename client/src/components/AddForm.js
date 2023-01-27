@@ -33,6 +33,8 @@ function AddForm() {
 
     return(<>
         <Header user={user} color="dark" dark={true} expand='sm' />
+        <h1>Add a new log entry:</h1>
+
         <Container>
             <Form onSubmit={addData}>
                 <FormGroup>
