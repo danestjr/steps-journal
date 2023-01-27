@@ -17,11 +17,11 @@ const router = createBrowserRouter ([
     element: <Walking />
   },
   {
-    path: "/add",
+    path: "/journal/add",
     element: <AddForm />
   },
   {
-    path: "/edit",
+    path: "/journal/edit",
     element: <EditForm />
   }
   ])
